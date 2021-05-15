@@ -39,10 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Installed apps
-    'snippets.apps.SnippetsConfig'
+    'snippets.apps.SnippetsConfig',
     
     # Installed via pip
     'rest_framework',
+    'django_pygments'
 ]
 
 MIDDLEWARE = [
