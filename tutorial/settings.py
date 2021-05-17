@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     # Installed apps
     'snippets.apps.SnippetsConfig',
+    'tutorial2.apps.Tutorial2Config',
+    'tutorial3.apps.Tutorial3Config',
     
     # Installed via pip
     'rest_framework',
