@@ -4,10 +4,11 @@ from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import permissions
 
 from snippets.models import Snippet
 from snippets.serializers import SnippetSerializer
-
+from snippets.permissions import IsOwnerOrReadOnly
 
 # Create your views here.
 
@@ -16,6 +17,7 @@ class SnippetList(APIView):
     """
     List of all snippets or create a new snippet
     """
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request, format=None):
         print("Tutorial-3 snippet get method")
@@ -36,6 +38,8 @@ class SnippetDetail(APIView):
     """
     Retrieve, update or delete a snippet instance.
     """
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+
     def get_object(self, pk):
         try:
             return Snippet.objects.get(pk=pk)

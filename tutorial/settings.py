@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     
     # Installed via pip
     'rest_framework',
-    'django_pygments'
+    'django_pygments',
+    'authentication_and_permissions'
 ]
 
 MIDDLEWARE = [
