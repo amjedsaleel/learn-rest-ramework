@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,5 +23,10 @@ urlpatterns = [
     path('tutorial-2/', include('tutorial2.urls')),
     path('tutorial-3/', include('tutorial3.urls')),
     path('authentication-permissions/', include('authentication_and_permissions.urls')),
+    path('class-based-view/', include('classBasedView.urls')),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += path('__debug__/', include(debug_toolbar.urls)),
 
